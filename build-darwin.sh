@@ -12,3 +12,5 @@ curl http://dl.node-webkit.org/v0.10.5/node-webkit-v0.10.5-osx-x64.zip -o tmp/no
 unzip tmp/node-webkit-v0.10.5-osx-x64.zip -d tmp/
 
 mv tmp/node-webkit-v0.10.5-osx-x64/* .
+
+rm -rf ./tmp
