@@ -13,7 +13,8 @@ namespace Octoblu.Gateblu{
 		   string tmpPath = path + "\\tmp";
 		   string distPath = path + "\\gateblu-ui\\dist";
 		   string nodePath = distPath + "\\node-v0.10.32-win-x86";
-		   
+
+       Console.WriteLine("Creating Temp Directory..");
 		   Directory.CreateDirectory(tmpPath);
 		   /*
 
@@ -23,16 +24,22 @@ namespace Octoblu.Gateblu{
        #http://nodejs.org/dist/npm/npm-1.4.12.zip
        #$gatebluZipFileName
        */
-
+       Console.WriteLine("Downloading gateblu source and decompressing ..");
 	     Build.DownloadAndDecompressFile("https://github.com/octoblu/gateblu-ui/archive/master.zip", tmpPath + "\\gateblu-ui.zip", path);
-	     Directory.Move(path + "\\gateblu-ui-master", path + "\\gateblu-ui");
+	     Console.WriteLine("Moving gateblu-ui-master to gateblu-ui.");
+
+       Directory.Move(path + "\\gateblu-ui-master", path + "\\gateblu-ui");
 
 	     if(!Directory.Exists(nodePath)){
+	       Console.WriteLine("Moving gateblu-ui-master to gateblu-ui.");
 	       Directory.CreateDirectory(nodePath);
 	     }
-
+       Console.WriteLine("Downloading NPM...");
        Build.DownloadAndDecompressFile("http://nodejs.org/dist/npm/npm-1.4.12.zip", tmpPath + "\\npm-1.4.12.zip",  path);
+       Console.WriteLine("Downloading NPM...");
        Build.DownloadFile("http://nodejs.org/dist/v0.10.32/x64/node.exe", nodePath );
+
+       //Run
 
 		}
 		
