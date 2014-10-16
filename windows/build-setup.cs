@@ -35,7 +35,7 @@ namespace Octoblu.Gateblu{
 		public static void DecompressFile(string filename, string targetDirectory ){
 	        using (ZipFile zipFile = ZipFile.Read(filename))
 	        {
-				    zipFile.ExtractAll(targetDirectory);
+				    zipFile.ExtractAll(targetDirectory, ExtractExistingFileAction.OverwriteSilently);
 			    }
 	  }
 
