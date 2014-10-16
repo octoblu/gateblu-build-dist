@@ -27,7 +27,7 @@ namespace Octoblu.Gateblu{
 	     Build.DownloadAndDecompressFile("https://github.com/octoblu/gateblu-ui/archive/master.zip", tmpPath + "\\gateblu-ui.zip", path);
 	     Directory.Move(path + "\\gateblu-ui-master", path + "\\gateblu-ui");
 	     var directoryInfo = Directory.CreateDirectory(nodePath);
-       Build.DownloadAndDecompressFile("http://nodejs.org/dist/npm/npm-1.4.12.zip", tmpPath + "\\npm-1.4.12.zip",  nodePath);
+       Build.DownloadAndDecompressFile("http://nodejs.org/dist/npm/npm-1.4.12.zip", tmpPath + "\\npm-1.4.12.zip",  path);
        Build.DownloadFile("http://nodejs.org/dist/v0.10.32/x64/node.exe", nodePath );
 
 		}
