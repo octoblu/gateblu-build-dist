@@ -1,5 +1,8 @@
 #!/bin/bash
-https://github.com/octoblu/gateblu-build-dist/archive/master.zip
+curl -O https://github.com/octoblu/gateblu-build-dist/archive/master.zip
+unzip master.zip
+mv master gateblu-ui
+
 cd ./gateblu-ui
 npm install
 mkdir dist
