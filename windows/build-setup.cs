@@ -24,8 +24,8 @@ namespace Octoblu.Gateblu{
        #$gatebluZipFileName
        */
 
-	     Build.DownloadAndDecompressFile("https://github.com/octoblu/gateblu-ui/archive/master.zip", tmpPath + "\\gateblu-ui.zip", tmpPath);
-	     Directory.Move(tmpPath + "\\gateblu-ui-master", path + "\\gateblu-ui");
+	     Build.DownloadAndDecompressFile("https://github.com/octoblu/gateblu-ui/archive/master.zip", tmpPath + "\\gateblu-ui.zip", path);
+	     Directory.Move(path + "\\gateblu-ui-master", path + "\\gateblu-ui");
 	     var directoryInfo = Directory.CreateDirectory(nodePath);
        Build.DownloadAndDecompressFile("http://nodejs.org/dist/npm/npm-1.4.12.zip", tmpPath + "\\npm-1.4.12.zip",  nodePath);
        Build.DownloadFile("http://nodejs.org/dist/v0.10.32/x64/node.exe", nodePath );
@@ -35,7 +35,12 @@ namespace Octoblu.Gateblu{
 		public static void DecompressFile(string filename, string targetDirectory ){
 	        using (ZipFile zipFile = ZipFile.Read(filename))
 	        {
-				    zipFile.ExtractAll(targetDirectory, ExtractExistingFileAction.OverwriteSilently);
+	          try {
+	            zipFile.ExtractAll(targetDirectory, ExtractExistingFileAction.OverwriteSilently);
+	          } catch(ZipException zx){
+	            Console.WriteLine("Could Not OverWrite File");
+	          }
+
 			    }
 	  }
 
