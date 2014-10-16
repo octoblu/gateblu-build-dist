@@ -1,5 +1,9 @@
 #!/bin/bash
-git clone https://github.com/octoblu/gateblu-ui.git
+curl -L -O https://github.com/octoblu/gateblu-ui/archive/master.zip
+unzip master.zip
+mv gateblu-ui-master gateblu-ui
+rm master.zip
+
 cd ./gateblu-ui
 npm install
 mkdir dist
